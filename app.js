@@ -4,6 +4,7 @@ import cors from "cors";
 import authRoute from "./routes/auth.route.js";
 import postRoute from "./routes/post.route.js";
 import checkRoute from "./routes/check.route.js";
+import userRoute from "./routes/user.route.js";
 
 
 const app = express();
@@ -14,8 +15,9 @@ app.use(cookieParser());
 // client url like http://localhost:3000 
 app.use(cors({ credentials: true, origin:process.env.CLIENT_URL }));
 app.use("/api/auth", authRoute);
-app.use("/api/posts", postRoute);
+app.use("/api/post", postRoute);
 app.use("/api/check", checkRoute);
+app.use("/api/user", userRoute);
 
 app.listen(8800, () => {
   console.log("Listening on port 8800");
